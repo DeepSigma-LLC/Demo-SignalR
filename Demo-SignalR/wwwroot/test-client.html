@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>SignalR Test Client</title>
+</head>
+<body>
+    <h2>SignalR Chat Test</h2>
+    <button id="connectBtn">Connect</button>
+    <button id="disconnectBtn" disabled>Disconnect</button>
+    <hr />
+    <input type="text" id="messageInput" placeholder="Enter message..." disabled />
+    <button id="sendBtn" disabled>Send</button>
+    <ul id="messages"></ul>
+
+    <script src="https://unpkg.com/@microsoft/signalr@latest/dist/browser/signalr.min.js"></script>
+    <script>
+        // Create a connection to the SignalR hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chat-hub")
+            .withAutomaticReconnect()
+            .configureLogging(signalR.LogLevel.Debug)
+            .build();
+
+        // Define client side code to handle incoming messages from the hub.
+        // Basically, when the hub calls "RecieveChatMessageAsync", this function will be executed.
+        connection.on("RecieveChatMessageAsync", message => {
+            const li = document.createElement("li");
+            li.textContent = message;
+            document.getElementById("messages").appendChild(li);
+        });
+
+        // Define button click handlers to manage connection.
+        document.getElementById("connectBtn").onclick = async () => {
+            await connection.start();
+            document.getElementById("connectBtn").disabled = true;
+            document.getElementById("disconnectBtn").disabled = false;
+            document.getElementById("messageInput").disabled = false;
+            document.getElementById("sendBtn").disabled = false;
+            console.log("Connected:", connection.connectionId);
+        };
+
+        // Define button click handlers to manage disconnection.
+        document.getElementById("disconnectBtn").onclick = async () => {
+            await connection.stop();
+            document.getElementById("connectBtn").disabled = false;
+            document.getElementById("disconnectBtn").disabled = true;
+            document.getElementById("messageInput").disabled = true;
+            document.getElementById("sendBtn").disabled = true;
+            console.log("Disconnected:", connection.connectionId);
+        };
+
+        // Define button click handlers to send messages to the hub.
+        document.getElementById("sendBtn").onclick = async () => {
+            const message = document.getElementById("messageInput").value;
+            await connection.invoke("SendMessageToAllAsync", message);
+            document.getElementById("messageInput").value = "";
+        };
+    </script>
+</body>
+</html>
