@@ -198,7 +198,7 @@ await connection.stop();
 
 Navigate to `http://localhost:5009/test-client.html`.
 
-![Web App](Demo-SignalR/Assets/WebApp_1.png)
+![Web App](Assets/WebApp_1.png)
 
 ---
 
@@ -206,7 +206,7 @@ Navigate to `http://localhost:5009/test-client.html`.
 
 Click **Connect**. The server fires `OnConnectedAsync` and broadcasts the join message to all clients.
 
-![Single Connection](Demo-SignalR/Assets/WebApp_2_Connection.png)
+![Single Connection](Assets/WebApp_2_Connection.png)
 
 ---
 
@@ -214,7 +214,7 @@ Click **Connect**. The server fires `OnConnectedAsync` and broadcasts the join m
 
 Open a second browser window and connect. Both clients see the new join message in real-time.
 
-![Dual Connection](Demo-SignalR/Assets/WebApp_3_DualConnection.png)
+![Dual Connection](Assets/WebApp_3_DualConnection.png)
 
 ---
 
@@ -222,7 +222,7 @@ Open a second browser window and connect. Both clients see the new join message 
 
 Type a message and click **Send**. The hub broadcasts it to all connected clients.
 
-![Sending a Message](Demo-SignalR/Assets/WebApp_4_SendingMessage.png)
+![Sending a Message](Assets/WebApp_4_SendingMessage.png)
 
 ---
 
@@ -230,7 +230,7 @@ Type a message and click **Send**. The hub broadcasts it to all connected client
 
 Both clients receive the message in real-time via the `RecieveChatMessageAsync` handler.
 
-![Receiving a Message](Demo-SignalR/Assets/WebApp_5_ReceivingMessage.png)
+![Receiving a Message](Assets/WebApp_5_ReceivingMessage.png)
 
 ---
 
@@ -238,7 +238,7 @@ Both clients receive the message in real-time via the `RecieveChatMessageAsync` 
 
 Use Scalar at `http://localhost:5009/scalar/v1` to POST to the `/broadcast` endpoint.
 
-![API Message Post](Demo-SignalR/Assets/WebApp_6_APIMessagePost.png)
+![API Message Post](Assets/WebApp_6_APIMessagePost.png)
 
 ---
 
@@ -246,7 +246,7 @@ Use Scalar at `http://localhost:5009/scalar/v1` to POST to the `/broadcast` endp
 
 The API returns `204 No Content`, confirming the message was dispatched via `IHubContext`.
 
-![API Posted Successfully](Demo-SignalR/Assets/WebApp_7_APIMessagePostedSuccessfully.png)
+![API Posted Successfully](Assets/WebApp_7_APIMessagePostedSuccessfully.png)
 
 ---
 
@@ -254,7 +254,7 @@ The API returns `204 No Content`, confirming the message was dispatched via `IHu
 
 Both browser clients receive the message pushed from the HTTP endpoint in real-time.
 
-![Both Clients Receiving API Message](Demo-SignalR/Assets/WebApp_8_BothClientsRecievingPostedAPIMessage.png)
+![Both Clients Receiving API Message](Assets/WebApp_8_BothClientsRecievingPostedAPIMessage.png)
 
 ---
 
@@ -262,7 +262,7 @@ Both browser clients receive the message pushed from the HTTP endpoint in real-t
 
 Click **Disconnect**. The server fires `OnDisconnectedAsync` and broadcasts the leave message to all remaining clients.
 
-![Unsubscribing from SignalR Server](Demo-SignalR/Assets/WebApp_9_UnsubscribingFromSignalRServer.png)
+![Unsubscribing from SignalR Server](Assets/WebApp_9_UnsubscribingFromSignalRServer.png)
 
 ---
 
