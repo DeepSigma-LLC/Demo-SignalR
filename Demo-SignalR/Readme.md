@@ -8,6 +8,20 @@ API documentation is available at http://localhost:5009/scalar/v1 when the appli
 
 ---
 
+## Notes on SignalR
+
+SignalR is a library for ASP.NET that allows you to add real-time web functionality to your applications.
+It enables server-side code to push content to clients instantly as it becomes available, rather than having the server wait for a client to request new data.
+This is particularly useful for applications that require high-frequency updates, such as chat applications, live dashboards, or gaming.
+
+SignalR supports WebSockets, which is the most efficient transport method for real-time communication.
+However, if WebSockets are not available, SignalR can fall back to other techniques such as Server-Sent Events or Long Polling to ensure that real-time communication still works.
+
+SignalR abstracts away the complexities of managing connections and allows developers to focus on the application logic rather than the underlying communication protocols.
+There is no need to worry about connection management, reconnection logic, or scaling out across multiple servers, as SignalR handles these aspects for you.
+
+---
+
 ## Setup and Run
 
 To update development certificates for HTTPS, run the following in the terminal:
@@ -251,15 +265,3 @@ Click **Disconnect**. The server fires `OnDisconnectedAsync` and broadcasts the 
 ![Unsubscribing from SignalR Server](Assets/WebApp_9_UnsubscribingFromSignalRServer.png)
 
 ---
-
-## Notes on SignalR
-
-SignalR is a library for ASP.NET that allows you to add real-time web functionality to your applications.
-It enables server-side code to push content to clients instantly as it becomes available, rather than having the server wait for a client to request new data.
-This is particularly useful for applications that require high-frequency updates, such as chat applications, live dashboards, or gaming.
-
-SignalR supports WebSockets, which is the most efficient transport method for real-time communication.
-However, if WebSockets are not available, SignalR can fall back to other techniques such as Server-Sent Events or Long Polling to ensure that real-time communication still works.
-
-SignalR abstracts away the complexities of managing connections and allows developers to focus on the application logic rather than the underlying communication protocols.
-There is no need to worry about connection management, reconnection logic, or scaling out across multiple servers, as SignalR handles these aspects for you.
