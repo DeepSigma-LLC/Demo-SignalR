@@ -1,4 +1,4 @@
-﻿# SignalR Sample App — .NET 10.0
+﻿# SignalR Demo App
 
 The purpose of this sample is to demonstrate how to use SignalR in a .NET 10.0 application.
 It includes a simple web application that allows users to send messages to each other in real-time.
