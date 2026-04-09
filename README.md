@@ -266,7 +266,7 @@ Click **Disconnect**. The server fires `OnDisconnectedAsync` and broadcasts the 
 
 ---
 
-## Additional Demo
+## Additional Resource - Walkthrough
 
 https://www.youtube.com/watch?v=DTfqqe7NgMQ
 
